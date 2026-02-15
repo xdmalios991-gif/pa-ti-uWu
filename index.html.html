@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>TE AMO😭❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.18) 2px, transparent 2px),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.15) 2px, transparent 2px),
+        linear-gradient(135deg, #1e90ff, #4fc3ff);
+      background-size: 40px 40px, 60px 60px, cover;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== HOME ===== */
+    .home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1.5s ease;
+      background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    }
+
+    .home h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+      animation: floatTitle 3s ease-in-out infinite;
+    }
+
+    .home p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      animation: fadeIn 2.5s;
+    }
+
+    /* ===== MENU ===== */
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .menu button {
+      padding: 20px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff, #ffe6f2);
+      color: #e63946;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.4s, box-shadow 0.4s;
+      animation: popIn 0.8s ease backwards;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+    }
+
+    .menu button:hover {
+      transform: scale(1.15) rotate(-2deg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    /* ===== PAGES ===== */
+    .page {
+      display: none;
+      position: absolute;
+      inset: 0;
+      padding: 40px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+
+    .page.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideUp 0.8s ease;
+    }
+
+    .card {
+      max-height: 85vh;
+      overflow-y: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      animation: zoomIn 0.6s ease;
+      position: relative;
+    }
+
+    .card::before {
+      content: '✨ 💖 ✨';
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 0 14px;
+      font-size: 18px;
+    }
+    }
+
+    h2 { color: #e63946; }
+
+    /* decoraciones internas */
+    .decor {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+      font-size: 26px;
+      animation: floatDeco 3s ease-in-out infinite;
+    }
+
+    .decor span:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .decor span:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    @keyframes floatDeco {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .img {
+      width: 45%;            /* fuerza dos por fila */
+      max-width: 260px;
+      border-radius: 16px;
+      margin: 0;             /* quitamos márgenes verticales */
+      display: inline-block; /* evita comportamiento de bloque */
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .back {
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .back:hover { transform: scale(1.1); }
+
+    /* ===== FLOATING HEARTS ===== */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 18px;
+      color: rgba(255,105,180,0.8);
+      animation: floatHeart 8s linear forwards;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes floatTitle {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatHeart {
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="home" id="home">
+  <h1>Te amo mucho 🥺</h1>
+  <p>Lo hice con chagipiti asiq estara bien kagao 🗣</p>
+  <div class="menu">
+    <button onclick="openPage('historia')">📖 El Inicio 🙀</button>
+    <button onclick="openPage('mensajes')">💘 Razones</button>
+    <button onclick="openPage('momentos')">✨ Momenticos</button>
+    <button onclick="openPage('razones')">💌 Mensajitos</button>
+    <button onclick="openPage('quiz')">🧠 Quiz pq si 😼</button>
+  </div>
+</div>
+
+<div id="historia" class="page"><div class="card"><h2>El Inicio 🙀</h2><div class="decor"><span>💗</span><span>✨</span><span>💗</span></div><p>Al inicio, cuando apenas me integre al grupo no esperaba que un día terminaría de esta forma contigo y no puedo estar mas que feliz. 
+No voy a negar que desde los primeros dias captabas mi atencion de alguna forma que ni yo podria explicarte, solo sabia que queria llegar a ser tu amiga y saber un poco mas de ti por la curiosidad que me generabas, cuando estaba en el grupo y hacian llamadas tampoco voy a negar que buscaba la forma en acercarme un poco mas a ti para poder ser amigos, aun recuerdo cuando era el primer auge de jugar maincra y no hablabamos mucho en llamada, pero interactuamos un poco en el juego sin decir mucho y eso solo hacia que quisiera acercarme mas a ti, luego de un tiempo cuando ya poco a poco nos fuimos acercando al punto de reirnos solo por decir numeros cualquieras pero aun asi todo quedaba en las llamadas y pequeños ratos juntos, hasta que alguiennn me quizo hacer spoiler de la pelicula del sonis y ese dia no podia ser mejor. 
+Con el tiempo te fui conociendo mas, gustos, cualidades, experiencias y hasta un poco tus pensamientos, en esos momentos no me sentia mas que atraida por el hecho de conocerte, pero al hacerlo me fue imposible no enamorarme de ti y por quien eras, no queria admitirlo porque no queria dañar lo que ya teniamos por ideas mias, pero cada vez que te veia sonreir me hacia hacerlo de forma involuntaria sin ningun motivo, cada vez que te escuchaba reir generaba una especie de felicidad y calma en mi que queria escucharte mas seguido haciendo eso, con cada ocurrencia o palabra tuya hacia que no pudiera aguantar y empezara a dar pequeñas señales o solo querer estar junto a ti todo el tiempo que pudiera con la excusa de que toda era casualidad. 
+El verte ya no era suficiente, poder abrazarte por pequeños periodos de tiempo tampoco lograban calmar lo que sentia hasta que finalmente lo acepte y me declare a ti aun que podia ser mejor la verdad, pero aun asi en ese momento senti miedo por haber hecho incorrecto y haber dañado todo, pero senti una inmensa felicidad cuando me diste el visto bueno y no pude estar mas que feliz ese dia al saber que lo que sentia era correspondido.</p><button class="back" onclick="goHome()">Volver</button></div></div>
+<div id="mensajes" class="page"><div class="card"><h2>💘 Razones</h2><div class="decor"><span>💗</span><span>✨</span><span>💗</span></div><p>Ya sabes, te he dicho muchas veces las razones por las que me gustas pero no esta de mas repetirlas una vez mas 😼
+Vamos primero con lo esencial que justo es la esencia de uno mismo, el como es, podras decir que no tienes mucho o que si lo tienes seguro son cosas malas, pero para mi no lo son pues hay toda una historia detras de todo eso, me gusta tu forma de ser, talvez puedas ser algo serio cuando sucede cualquier cosa pero no es comparacion para lo que en realidad eres, me gusta tu humor y como podria decirte cualquier cosa y aun asi te reirias como si realmente lo valiera, la forma en que te preocupas por quienes quieres, lo mismo de siempre, me gusta cuando encuentras algo que te gusta y se te ve feliz haciendolo o incluso profundizas un poco mas en ese tema que te trae tan interesado, a pesar de todo lo que digas para mi eres una persona alegre que solo tiene sus momentos malos de vez en cuando y no hay problema en eso, me gusta lo cariñoso que puedes llegar a ser y como notas aveces pequeñas cosas que pasan y las retienes que hasta parecieran que ya son parte de ti, aun que se puede decir que es un gusto de ahora y no como tal tuyo, pero es una forma de decirte el gran corazon que tienes a pesar de lo mal que lo puedes haber pasado antes de todo y quisiera poder borrar todo eso y simplemente dejar que disfrutes de lo bueno. 
+Ademas de todo eso tampoco negare que me gusta el como te ves, me gusta tu carita, tu cuerpo, tu piel, tus ojos, tus mejillas, tu boca y hasta tus lunares que seria capaz de tener una foto de cada uno de ellos solo como un recordatorio de todo lo lindo que tienes, me gusta tu pelo y obviamente la forma en que hueles, aun que tu digas que estas sucio para mi hueles muy rico (👅) y nunca me cansaria de el, me gusta tanto tu pancita y creo que lo notas, me la pasaria todo el dia simplemente tocandola mientras te beso o te miro a los ojos porque te me haces irresistible de no querer tocar, te quisiera tener abrazado en todo momento para nunca soltarte y poder saber que estas ahi conmigo y que al final de todo me diste una oportunidad y me aceptaste a pesar de todo lo que ya conocias de mi.</p><button class="back" onclick="goHome()">Volver</button></div></div>
+<div id="momentos" class="page"><div class="card"><h2>Momentos ✨</h2><div class="decor"><span>💗</span><span>✨</span><span>💗</span></div><p>Este espacio es solo para mencionar algunos momentos que medio recuerde por su impacto, su importancia o solo porque aun siguen en mi memoria
+Obvio no voy a olvidar lo de la pelicula del sonis, fuera de la broma de que no te había salido el chiste, era la primera vez que tecnicamente hablabamos de forma privada y asi le dio paso a todo esto y te agradezco mucho por dar ese primer paso en eso 
+También recuerdo cuando fue la primera llamada que tuve contigo, cuando era ya madrugada y seguiamos hablando por audio, entonces me ganaron las ganas y te llame para tener nuestra primera llamada solo nosotros 2, no recuerdo bien que haciamos, pero hubo un momento en donde estabas jugando al clash y justo mi mama habia llegado a preguntarme porque seguia despierta y hasta ahi llego nuestra llamada, pero aun asi la recuerdo por haber sido la primera
+Ahora entrando un poco mas a triste, no voy a olvidar nunca lo que paso el dia de mi cumpleaños, estaba preocupada por ti y por el como tus pensamientos te tenian abrumando un buen tiempo, no te voy a mentir, luego que hubiera pasado todo eso de las olimpiadas tenia una preocupacion y una tension en mi por saber como estabas, tanto que no me preocupaba lo que iba a pasar conmigo ese dia, me desesperaba que tuviera que llegar a casa para tener una buena charla contigo y hasta buscaba donde sea un poco de internet para poder escribirte y saber de ti, en ese dia solo me preocupabas tu y es raro como ese momento fue el que hizo que cambiara de opinion sobre mi destino y me propuse a seguir por ti hasta que pudieras salir de todo lo malo que te sigue hasta ahora y justamente ahi acepte que me gustabas y no podia evitarlo ya, perdon si no te resulta agradable leerlo a este punto pero es algo que sucedio y no se puede olvidar sin mas, no hay que enfocarse en lo negativo de todo esto, sino que hay que pensarlo que fue una forma algo liberadora de todo lo que uno se tenia guardado, al menos asi quiero pensar de ese momento pues se puede tomar el cliche de que un momento asi puede reforzar la confianza que teniamos, solo hay que pensar en ese momento como una experiencia mas de la vida, que al menos a mi parecer, fue bueno que se haya dado si no tomamos en cuenta lo malo
+Aun asi nada de eso cambio lo que sentia por ti y simplemente lo que hizo fue reforzar mas de lo que ya sentia asi que no sientas verguenza y odio por ese dia, solo fue un momento mas.</p><button class="back" onclick="goHome()">Volver</button></div></div>
+<div id="razones" class="page"><div class="card"><h2>💌 Mensajitos</h2><div class="decor"><span>💗</span><span>✨</span><span>💗</span></div><p>Luego de todas esas palabras igual quisiera que tengas un pequeño recordarlo de forma mas simplificada por asi decirlo:
+  
+-Eres mucho mas fuerte de lo que crees mi amor, nunca olvides lo increible que eres
+  
+-Tienes un gran corazon aunque para ti pareciera que no es así
+  
+-Estoy tan orgullosa de todo lo que has logrado y que se que en un futuro lograras mucho mas
+-Tienes muchos talentos mi amor asi que no los minimices como si fuera algo que todos puedan hacer
+-Te mereces todo lo bueno del mundo, eres digno de ello
+-Para mi eres realmente hermoso, no dejes que estandares superficiales o lo que se tenga visto como bonito te hagan pensar que no lo eres
+-Tu personalidad no tiene nada de malo
+-Confia en lo que puedes hacer porque puedes hacer mucho con tu gran talento
+-Eres especial para mi y nadie va a poder borrar lo que siento por ti
+-No tienes que cambiar nada de ti, te amo tal cual estas
+-Siempre estare a tu lado amor, pase lo que pase
+-Si sucede algo no tengas miedo en contarmelo, siempre te apoyare
+-Recuerda que nunca estas solo, me tienes a mi y a tus amigos para cualquier cosa
+-No importa que pase, yo siempre voy a creer en ti 
+-Te amo mucho mas de lo que puedo llegar a expresarte en palabras
+-Creeme que solo traes alegria a mi vida y no eres ningun tipo de molestia
+-Me encanta pasar tiempo contigo, ya sea hablando o simplemente en silencio, pero te tengo a mi lado y eso me basta y sobra
+-Mi vida es mucho mejor contigo en ella y espero que nunca acabe
+-No te enfoques en lo malo del pasado y que eso no represente a quien realmente eres
+Te amo, y mucho, enserio muchas gracias por todo lo que me has dado, tu tiempo, tus palabras, tus consejos, tu apoyo, tu confianza y tambien tus problemas, perdoname si no he sido suficiente en algun momento, te amo y quiero mejorar por ti en cada aspecto, ya te lo he dicho mucho, pero si hay algo que te moleste de mi puedes decirmelo sin problemas y lo cambiare para que puedas sentirte a gusto conmigo, espero que con todo entiendas que te amo muchísimo, te amo enserio ❤.</p><button class="back" onclick="goHome()">Volver</button></div></div>
+
+<div id="quiz" class="page">
+  <div class="card">
+    <h2>Quiz del amor 🧠❤️</h2>
+    <p>Entendiste porque me gustas tanto?😼</p>
+    <button onclick="responder(false)">Nio</button><br><br>
+    <button onclick="responder(true)">Shi</button><br><br>
+    <button onclick="responder(false)">Que</button>
+    <p id="resultado" style="margin-top:15px;"></p>
+    <button class="back" onclick="goHome()">Volver</button>
+  </div>
+</div>
+
+<script>
+  function openPage(id) {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById(id).classList.add('active');
+  }
+
+  function goHome() {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('home').style.display = 'flex';
+  }
+
+  function responder(correct) {
+    const resultado = document.getElementById('resultado');
+    if (correct) {
+      resultado.textContent = 'biennn, te amo mucho mi vida 😽💖';
+    } else {
+      resultado.textContent = 'grrrrr 😾';
+    }
+  }
+
+  // Tests básicos
+  console.assert(typeof openPage === 'function', 'openPage debe existir');
+  console.assert(typeof goHome === 'function', 'goHome debe existir');
+  console.assert(typeof responder === 'function', 'responder debe existir');
+  function crearCorazon() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (14 + Math.random() * 20) + 'px';
+    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 9000);
+  }
+
+  setInterval(crearCorazon, 400);
+
+  // Test adicional corazones
+  console.assert(typeof crearCorazon === 'function', 'crearCorazon debe existir');
+</script>
+
+</body>
+</html>
